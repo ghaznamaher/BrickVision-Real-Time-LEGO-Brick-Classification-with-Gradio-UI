@@ -31,7 +31,7 @@ Gradio web app: upload an image → returns class probabilities (top-k).
 
 Runs inside Colab with an optional public share link.
 
-Deployment Options:
+**Deployment Options:**
 
 Keep using Gradio share from Colab for demos.
 
@@ -42,7 +42,7 @@ Optional: host on Hugging Face Spaces (Gradio app + requirements.txt + best.pt).
 Why Classification (not Detection) first?
 Most images contain a single brick; classification is simpler, faster, and lighter. If later needed to find multiple bricks per image, extend to YOLO detection with bounding boxes.
 
-Constraints & Mitigations:
+**Constraints & Mitigations:**
 
 Colab storage: controlled with MAX_PER_CLASS to avoid disk exhaustion.
 
@@ -50,6 +50,3 @@ No GPU: reduce batch size/epochs; still works on CPU (slower).
 
 
 
-Reproducible Colab notebook (setup → data → training → eval → UI).
-
-Deployed mini-app (Gradio) + downloadable best.pt.
