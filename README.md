@@ -50,9 +50,59 @@ No GPU: reduce batch size/epochs; still works on CPU (slower).
 
 **Use Case**
 
-- Faster brick sorting and inventorying
-- Educational demos of CV pipelines
-- Hobbyist productivity
+* Problem. Identifying and sorting LEGO® bricks by type is slow and error-prone when done by hand. It gets in the way of building, cataloging collections, classroom activities, and maker projects.
 
+* Solution. BrickVision is a web app that classifies a single LEGO brick from a photo using a fine-tuned YOLOv8 classification model. Upload an image → get the top predicted part class with confidence scores. It runs in the browser (no installs), so anyone can try it.
 
+**Who benefits.**
+
+Hobbyists/AFOLs: faster binning and inventory management
+
+Educators/Makerspaces: quick demos of computer vision + hands-on sorting
+
+Parents/Students: simple, kid-friendly way to learn about AI
+
+**How it’s used.**
+
+* Take/drag a photo of one brick (good lighting, plain background helps).
+
+* The app returns the predicted class (e.g., Brick_2x4) with confidence bars.
+
+* Use results to sort bins, label drawers, or log inventory.
+
+**Notes & limits.**
+
+* Trained for single-brick images; multi-brick scenes may confuse the classifier.
+
+* Accuracy improves with more training data, balanced classes, and longer training.
+
+**Future work:**
+
+Switch to object detection to localize multiple bricks per image; integrate with a physical sorter.
+
+**Live Deployment (Hugging Face Spaces)**
+
+Public URLs
+
+App (full screen): https://ghazna-brickvision-ai.hf.space
+
+Project page: https://huggingface.co/spaces/Ghazna/brickvision-ai
+
+Stack
+
+UI: Gradio
+
+Model: Ultralytics YOLOv8-cls (PyTorch CPU)
+
+Hosting: Hugging Face Spaces (Gradio SDK)
+
+**What we deployed.**
+
+app.py — loads the trained weights, runs inference, and serves a Gradio interface.
+
+requirements.txt — pinned deps (PyTorch CPU wheels) for faster, reliable builds.
+
+Weights — your fine-tuned model (best.pt). We pointed the app to it via env var:
+
+Space Settings → Variables: WEIGHTS_PATH = best.pt
 
