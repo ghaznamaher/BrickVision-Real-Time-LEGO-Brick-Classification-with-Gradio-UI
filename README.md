@@ -48,5 +48,11 @@ Colab storage: controlled with MAX_PER_CLASS to avoid disk exhaustion.
 
 No GPU: reduce batch size/epochs; still works on CPU (slower).
 
+**Use Case**
+
+- Faster brick sorting and inventorying
+- Educational demos of CV pipelines
+- Hobbyist productivity
+
 
 
